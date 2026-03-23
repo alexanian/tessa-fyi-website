@@ -14,12 +14,12 @@ h3,
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 h2 {
-  font-size: 1.5rem;
-  margin-top: 1rem;
+  font-size: 2rem;
+  margin-top: 1.5rem;
 }
 
 .links-list {
@@ -60,6 +60,10 @@ a:hover {
   color: rgb(130, 130, 130);
 }
 
+.text-gray {
+  color: rgb(130, 130, 130);
+}
+
 .no-fouc {
   display: none;
 }
@@ -79,8 +83,15 @@ ul ul {
   font-size: 1.3rem;
 }
 
+.longform-text-container h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
 p.caption {
   font-size: 1rem;
+  color: rgb(130, 130, 130);
+  font-style: italic;
 }
 
 blockquote {
