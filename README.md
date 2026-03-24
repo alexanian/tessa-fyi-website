@@ -1,4 +1,4 @@
-# alexanian.github.io
+# Tessa Alexanian's personal website
 
-My personal website! Hosted at [tessa.fyi](https://tessa.fyi).
+Hosted at [tessa.fyi](https://tessa.fyi). Currently just raw HTML, don't @ me.
 `
