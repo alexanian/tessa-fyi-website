@@ -1,0 +1,51 @@
+---
+layout: default
+og_type: article
+---
+{%- comment -%}
+  Long-form page: title, optional dateline and intro, then the Markdown body.
+
+  The body can be split into Bootstrap columns with HTML comments on their own line:
+    <!-- side -->  everything after this (until the next row) goes in the right-hand column
+    <!-- row -->   start a new row, e.g. one per section with its own side image
+
+  Front matter knobs:
+    main_col   classes for the text column      (default "col-sm-7")
+    side_col   classes for the right-hand column (default "col-sm-5 text-center")
+    dateline   text shown under the title, e.g. "August 7, 2020"
+    intro      Markdown shown between the dateline and the body
+{%- endcomment -%}
+{%- assign main_col = page.main_col | default: "col-sm-7" -%}
+{%- assign side_col = page.side_col | default: "col-sm-5 text-center" -%}
+{%- assign rows = content | split: "<!-- row -->" -%}
+<div class="container">
+  {%- for row in rows %}
+  {%- assign cols = row | split: "<!-- side -->" %}
+  {%- if forloop.first %}
+  <div class="row">
+    <div class="{{ main_col }}">
+      <h1>{{ page.title }}</h1>
+      {%- if page.dateline %}
+      <p>{{ page.dateline }}</p>
+      {%- endif %}
+      {%- if page.intro %}
+      {{ page.intro | markdownify }}
+      {%- endif %}
+      <div class="longform-text-container">
+        {{ cols[0] }}
+      </div>
+    </div>
+  {%- else %}
+  <div class="row longform-text-container">
+    <div class="{{ main_col }}">
+      {{ cols[0] }}
+    </div>
+  {%- endif %}
+  {%- if cols.size > 1 %}
+    <div class="{{ side_col }}">
+      {{ cols[1] }}
+    </div>
+  {%- endif %}
+  </div>
+  {%- endfor %}
+</div>

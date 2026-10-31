@@ -1,0 +1,23 @@
+title: tessa.fyi
+url: https://tessa.fyi
+twitter_username: tessafyi
+
+# Keep URLs exactly as before: foo.md builds to foo.html, which
+# GitHub Pages serves at the extensionless /foo.
+permalink: none
+
+# Jekyll skips dot-folders unless told otherwise.
+include:
+  - .well-known
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - .ruby-version
+  - vendor
+
+# Leave punctuation exactly as typed (no curly quotes or "..." -> "…").
+kramdown:
+  smart_quotes: ["apos", "apos", "quot", "quot"]
+  typographic_symbols: { hellip: "...", mdash: "---", ndash: "--", laquo: "<<", raquo: ">>", laquo_space: "<< ", raquo_space: " >>" }

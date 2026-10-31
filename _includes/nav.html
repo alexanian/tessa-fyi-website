@@ -1,0 +1,11 @@
+{%- comment -%} Breadcrumb links at the top of the page, chosen by `nav:` in front matter. {%- endcomment -%}
+<div class="jumbotron no-bottom-padding">
+      <div class="container links-list">
+        {%- for item in page.nav -%}
+          {%- case item -%}
+            {%- when "home" -%}<a href="/">home</a>
+            {%- when "about" -%}<a href="/about">about me</a>
+            {%- when "zachary-jacobi" -%}<a href="/zachary-jacobi">Zachary Jacobi</a>
+          {%- endcase %} | {% endfor -%}
+      </div>
+    </div>

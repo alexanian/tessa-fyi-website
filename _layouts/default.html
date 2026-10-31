@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+  <head>
+    {% include head.html %}
+  </head>
+  <body>
+    {% if page.nav %}{% include nav.html %}{% endif %}
+    {{ content }}
+  </body>
+</html>

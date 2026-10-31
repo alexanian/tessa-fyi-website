@@ -1,0 +1,47 @@
+{%- assign head_title = page.head_title | default: page.title | append: " | tessa.fyi" -%}
+{%- if page.head_title -%}{%- assign head_title = page.head_title -%}{%- endif -%}
+{%- assign canonical = page.url | replace: ".html", "" | prepend: site.url -%}
+{%- assign og_type = page.og_type | default: layout.og_type | default: "website" -%}
+<title>{{ head_title }}</title>
+    <meta name="description" content="{{ page.description | escape }}" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="canonical" href="{{ canonical }}" />
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="{{ page.title | escape }}" />
+    <meta name="twitter:description" content="{{ page.description | escape }}" />
+    <meta name="twitter:creator" content="@{{ site.twitter_username }}" />
+    {%- if page.image %}
+    <meta name="twitter:image" content="{{ page.image | prepend: site.url }}" />
+    {%- endif %}
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="{{ page.title | escape }}" />
+    <meta property="og:type" content="{{ og_type }}" />
+    {%- if page.image %}
+    <meta property="og:image" content="{{ page.image | prepend: site.url }}" />
+    {%- endif %}
+    <meta property="og:site_name" content="tessa.fyi" />
+
+    <!-- A silly set of favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <!-- Fonts, sigh. Articles load the italic face; the home and about pages load bold. -->
+    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet" />
+    {%- if layout.og_type == "article" %}
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital@0;1&display=swap" rel="stylesheet" />
+    {%- else %}
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet" />
+    {%- endif %}

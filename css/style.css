@@ -99,3 +99,12 @@ blockquote {
   padding: 0 1rem 0;
   border-left: 3px solid rgb(130, 130, 130);
 }
+
+/* Markdown wraps a lone image in a paragraph; don't add space under it. */
+p:has(> img:only-child) {
+  margin-bottom: 0;
+}
+
+p:has(> img:only-child) + blockquote {
+  margin-top: 1rem;
+}
