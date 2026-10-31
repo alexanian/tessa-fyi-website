@@ -1,5 +1,5 @@
-{%- assign head_title = page.head_title | default: page.title | append: " | tessa.fyi" -%}
-{%- if page.head_title -%}{%- assign head_title = page.head_title -%}{%- endif -%}
+{%- assign default_title = page.title | append: " | tessa.fyi" -%}
+{%- assign head_title = page.head_title | default: default_title -%}
 {%- assign canonical = page.url | replace: ".html", "" | prepend: site.url -%}
 {%- assign og_type = page.og_type | default: layout.og_type | default: "website" -%}
 <title>{{ head_title }}</title>

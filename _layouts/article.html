@@ -2,19 +2,7 @@
 layout: default
 og_type: article
 ---
-{%- comment -%}
-  Long-form page: title, optional dateline and intro, then the Markdown body.
-
-  The body can be split into Bootstrap columns with HTML comments on their own line:
-    <!-- side -->  everything after this (until the next row) goes in the right-hand column
-    <!-- row -->   start a new row, e.g. one per section with its own side image
-
-  Front matter knobs:
-    main_col   classes for the text column      (default "col-sm-7")
-    side_col   classes for the right-hand column (default "col-sm-5 text-center")
-    dateline   text shown under the title, e.g. "August 7, 2020"
-    intro      Markdown shown between the dateline and the body
-{%- endcomment -%}
+{%- comment -%} Long-form Markdown page. Front matter options and the <!-- side --> / <!-- row --> markers are described in README.md. {%- endcomment -%}
 {%- assign main_col = page.main_col | default: "col-sm-7" -%}
 {%- assign side_col = page.side_col | default: "col-sm-5 text-center" -%}
 {%- assign rows = content | split: "<!-- row -->" -%}
