@@ -1,7 +1,8 @@
 # Tessa Alexanian's personal website
 
-Hosted at [tessa.fyi](https://tessa.fyi). Built with [Jekyll](https://jekyllrb.com/) and deployed to GitHub Pages by
-`.github/workflows/jekyll.yml` on every push to `main`. No JavaScript framework, no node_modules.
+Hosted at [tessa.fyi](https://tessa.fyi).
+
+Recently elevated from raw HTML to a Jekyll build, shoutout to LLM help.
 
 ## Preview locally
 
@@ -10,7 +11,7 @@ bundle install
 bundle exec jekyll serve   # http://localhost:4000
 ```
 
-## How it fits together
+## Templating set up by the LLMs
 
 - `_includes/head.html` builds every page's `<head>` (title, description, social cards, favicons, CSS, fonts) from front matter.
 - `_includes/nav.html` is the link bar at the top; pick links with `nav: [home, about, zachary-jacobi]`.
@@ -19,9 +20,9 @@ bundle exec jekyll serve   # http://localhost:4000
   their own HTML and CSS.
 - `foo.md` builds to `foo.html`, which GitHub Pages serves at `/foo`.
 
-## Adding an essay
+### Notes on the article format
 
-Create `words/my-essay.md`:
+Create `words/my-essay.md`, fill in expected frontmatter:
 
 ```markdown
 ---
@@ -35,15 +36,13 @@ intro: "*Originally published in [Somewhere](https://example.com).*"   # optiona
 main_col: col-sm-8                        # optional, default col-sm-7
 ---
 
-Body text in Markdown.
-
 ![Alt text](/img/words/my-essay/photo.jpg){: .img-fluid}
 
 A caption under the photo.
 {: .caption}
 ```
 
-### Images beside the text
+#### Side-column images (used on a few pages)
 
 Put `<!-- side -->` on its own line: everything after it goes in a right-hand column (set its classes with `side_col`,
 default `col-sm-5 text-center`). Put `<!-- row -->` on its own line to start a new row, e.g. one per section, each with
